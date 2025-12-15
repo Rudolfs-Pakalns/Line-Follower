@@ -631,6 +631,22 @@
     [
       "1083d6e7-aa13-46a7-8f85-f07380e6d223",
       "Root"
+    ],
+    [
+      "5adb118e-0297-4d38-8425-c4aef7628746",
+      "ATmega32U4"
+    ],
+    [
+      "8e31dc46-8706-4fc6-8649-337d5e53d6f9",
+      "Power"
+    ],
+    [
+      "fb8f9595-99df-425a-bbcd-27bf73c03845",
+      "Motor Driver"
+    ],
+    [
+      "31b29f11-de1d-4298-a4a6-54a899c5b64e",
+      "Sensors"
     ]
   ],
   "text_variables": {}
