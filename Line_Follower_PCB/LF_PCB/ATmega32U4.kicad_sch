@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "c8ba6567-1607-41a6-b091-d219d5b462e2")
+	(uuid "b4007319-f705-4483-b22e-b817e7507a03")
 	(paper "A4")
 	(title_block
 		(title "Line Follower")
@@ -4482,19 +4482,18 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2b196917-a49b-4056-8954-5faf1da1c4a6")
 		(property "Reference" "C4"
-			(at 85.09 110.4962 0)
+			(at 83.058 110.236 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "100n"
-			(at 85.09 113.0362 0)
+		(property "Value" "22p"
+			(at 86.614 113.284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6125,7 +6124,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "22p"
 			(at 97.79 113.0362 0)
 			(effects
 				(font

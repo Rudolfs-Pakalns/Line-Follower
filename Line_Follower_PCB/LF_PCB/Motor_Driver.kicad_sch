@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "be452b50-70f7-4ff8-9a32-966581b28265")
+	(uuid "1800ffea-3cbf-4e25-af28-01291289e5de")
 	(paper "A4")
 	(title_block
 		(title "Line Follower")
