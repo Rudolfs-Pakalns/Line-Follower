@@ -1,0 +1,164 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "4ea53e76-d3b3-4b1a-b681-a989539cc0f0")
+	(paper "A4")
+	(lib_symbols)
+	(text "Version 1.0"
+		(exclude_from_sim no)
+		(at 41.91 42.672 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 0.625)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "b0e2af21-0ee0-44ae-97ff-fac00634dc4e")
+	)
+	(text "Line Follower - SMB-100-A"
+		(exclude_from_sim no)
+		(at 139.954 27.432 0)
+		(effects
+			(font
+				(size 11 11)
+				(thickness 2.5)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "e380e11e-3f9d-41ad-b7c0-05f34caaa238")
+	)
+	(sheet
+		(at 20.32 92.71)
+		(size 53.975 7.62)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "6fe9163a-e8e7-4068-beab-686e8ca55582")
+		(property "Sheetname" "Version Tracking"
+			(at 20.32 91.6334 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "version_tracking.kicad_sch"
+			(at 20.32 100.9146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "SMB-100-A"
+				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.32 77.47)
+		(size 53.975 7.62)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d341834e-563c-4e68-8b83-8ae7278e8d4b")
+		(property "Sheetname" "Sensors"
+			(at 20.32 76.3934 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensors.kicad_sch"
+			(at 20.32 85.6746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "SMB-100-A"
+				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.32 62.23)
+		(size 53.975 7.62)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "eb054e11-d8bb-4ed1-95f8-15f8ee39f55e")
+		(property "Sheetname" "Block Diagramme"
+			(at 20.32 61.1534 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "block_diagramme.kicad_sch"
+			(at 20.32 70.4346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "SMB-100-A"
+				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

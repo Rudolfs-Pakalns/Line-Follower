@@ -1,8 +1,10 @@
-#include "Arduino.h"
-#ifndef MOVEMENT_H
-#define MOVEMENT_H
-
-#include "GPIO.h"
+/**
+ * @file MOVEMENT.ino
+ * @author Rūdolfs Pakalns
+ * @brief movement control library
+ * @version 0.1
+ * @date 2025-12-20
+ */
 
 
 void Drive(uint8_t Pin_A1, uint8_t Pin_A2, uint8_t Pin_B1, uint8_t Pin_B2, uint8_t Speed)
@@ -14,4 +16,3 @@ void Drive(uint8_t Pin_A1, uint8_t Pin_A2, uint8_t Pin_B1, uint8_t Pin_B2, uint8
   analogWrite(Pin_B2, 0);
 }
 
-#endif // MOVEMENT_H

@@ -1,20 +1,30 @@
+/**
+ * @file GPIO.h
+ * @author Rūdolfs Pakalns
+ * @brief GPIO initialization library
+ * @version 0.1
+ * @date 2025-12-20
+ */
+
 #ifndef GPIO_H
 #define GPIO_H
 
-#define MOTOR_PIN_A1 5
-#define MOTOR_PIN_A2 11
-#define MOTOR_PIN_B1 9
-#define MOTOR_PIN_B2 10
+#define MOTOR_PIN_A1  5
+#define MOTOR_PIN_A2  11
+#define MOTOR_PIN_B1  9
+#define MOTOR_PIN_B2  10
+#define BUTTON        2
+#define SENSOR_1      A0
+#define SENSOR_2      A1
+#define SENSOR_3      A2
+#define SENSOR_4      A3
+#define SENSOR_5      A4
 
 
-void GPIO_Init(void)
-{
-  pinMode(MOTOR_PIN_A1, OUTPUT);
-  pinMode(MOTOR_PIN_A2, OUTPUT);
-  pinMode(MOTOR_PIN_B1, OUTPUT);
-  pinMode(MOTOR_PIN_B2, OUTPUT);
-
-  Serial.println("GPIO Initialzied!");
-}
+void GPIO_Init(void);
 
 #endif // GPIO_H
+
+
+
+

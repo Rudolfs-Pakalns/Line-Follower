@@ -1,0 +1,14 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "cd856d61-639a-43f1-a625-25a87360f87a")
+	(paper "A4")
+	(title_block
+		(title "PSB - 100 - A")
+		(date "2025-12-21")
+		(rev "1.0")
+		(company "Rūdolfs Pakalns")
+	)
+	(lib_symbols)
+)

@@ -1,0 +1,32 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "9946ea3a-5770-41cd-9a1d-65bf0662d94f")
+	(paper "A4")
+	(lib_symbols)
+	(text "Version 1.0 - Initial design"
+		(exclude_from_sim no)
+		(at 76.708 51.054 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 0.625)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "7bce52a4-f2f4-4d4b-a896-cb975fd46613")
+	)
+	(text "Version tracking\n"
+		(exclude_from_sim no)
+		(at 88.646 29.21 0)
+		(effects
+			(font
+				(size 11 11)
+				(thickness 2.5)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "fdce0249-ba2d-45df-bb2f-10f0dd2cf40c")
+	)
+)
