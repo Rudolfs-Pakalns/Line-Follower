@@ -9,15 +9,17 @@
 // Includes
 #include "GPIO.h"
 #include "MOVEMENTS.h"
+
 // Definitions
 #define ARRAY_SIZE 5
+#define BASE_SPEED 100
 
 // PV
-uint8_t sensors[ARRAY_SIZE] = {0};
-int8_t weights[ARRAY_SIZE] = {-2, -1, 0, 1, 2 };
-int8_t error = 0;
-uint8_t PID = 0;
-uint8_t speed = 0;
+uint8_t   sensors[ARRAY_SIZE] = {0};
+int8_t    weights[ARRAY_SIZE] = {-2, -1, 0, 1, 2 };
+int8_t    error = 0;
+uint8_t   PID = 0;
+uint8_t   speed = 0;
 
 // PFP
 int8_t calculate_error(uint8_t *sensors, int8_t *weights);
@@ -33,6 +35,9 @@ void loop()
   error = calculate_error(sensors, weights);
 
   // DO SOMETHING TO CONVERT ERROR INTO SPEED FOR MOTORS
+  speed = PID + BASE_SPEED; 
+  
+
     
   Drive(MOTOR_PIN_A1, MOTOR_PIN_A2, MOTOR_PIN_B1, MOTOR_PIN_B2, speed);
 

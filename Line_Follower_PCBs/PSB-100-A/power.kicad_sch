@@ -226,8 +226,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "BT"
-				(at 2.54 2.54 0)
+			(property "Reference" "BT1"
+				(at 3.81 1.8416 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -236,7 +236,7 @@
 				)
 			)
 			(property "Value" "Battery"
-				(at 2.54 0 0)
+				(at 3.81 -0.6984 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -244,7 +244,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Connector_AMASS:AMASS_XT60IPW-M_1x03_P7.20mm_Horizontal"
 				(at 0 1.524 90)
 				(effects
 					(font
@@ -402,14 +402,14 @@
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
-					(name "+"
+					(name "-"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -420,14 +420,14 @@
 				(pin passive line
 					(at 0 -5.08 90)
 					(length 2.54)
-					(name "-"
+					(name "+"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1912,8 +1912,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 4.318 0)
+			(property "Reference" "SW4"
+				(at 0 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1921,14 +1921,15 @@
 				)
 			)
 			(property "Value" "SW_Nidec_CAS-120A1"
-				(at 0 -5.08 0)
+				(at 0 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(property "Footprint" "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+			(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Angled_CK_OS102011MA1Q"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -2053,14 +2054,14 @@
 				(pin passive line
 					(at 5.08 2.54 180)
 					(length 2.54)
-					(name "A"
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2071,14 +2072,14 @@
 				(pin passive line
 					(at 5.08 -2.54 180)
 					(length 2.54)
-					(name "C"
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2963,18 +2964,6 @@
 		(uuid "0a0ffe37-0069-4e2b-99d5-9492c5880641")
 	)
 	(junction
-		(at 134.62 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0f6d88ea-e522-41c9-999c-126301d21779")
-	)
-	(junction
-		(at 132.08 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "135c7e96-7270-4104-8d35-e29b37720933")
-	)
-	(junction
 		(at 205.74 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3082,9 +3071,20 @@
 		(color 0 0 0 0)
 		(uuid "f3eba478-0d45-4c7f-8106-32631d996b25")
 	)
-	(no_connect
-		(at 137.16 81.28)
-		(uuid "836e15b8-3d51-482b-b1ac-ee76de8ad1b5")
+	(junction
+		(at 132.08 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fd9724d8-02b6-4a8e-b7e3-bce0b622f75c")
+	)
+	(bus_entry
+		(at 177.8 80.01)
+		(size 2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfa5b17e-c61f-4b26-ad7e-1ef817edd1b9")
 	)
 	(wire
 		(pts
@@ -3138,16 +3138,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 92.71) (xy 134.62 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cb8a1e0-7562-44ff-b535-7f2eedc207bb")
-	)
-	(wire
-		(pts
 			(xy 90.17 82.55) (xy 90.17 85.09)
 		)
 		(stroke
@@ -3178,16 +3168,6 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 92.71) (xy 134.62 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "294079c6-e7f8-4a60-aa76-38155fbfbbf5")
-	)
-	(wire
-		(pts
 			(xy 170.18 74.93) (xy 194.31 74.93)
 		)
 		(stroke
@@ -3215,16 +3195,6 @@
 			(type default)
 		)
 		(uuid "34d81ea1-ca58-45f5-bf51-731fd29fd7c1")
-	)
-	(wire
-		(pts
-			(xy 132.08 80.01) (xy 144.78 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3594e1bc-43cf-41a9-9d26-eb84ac2d858b")
 	)
 	(wire
 		(pts
@@ -3308,7 +3278,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 92.71) (xy 157.48 92.71)
+			(xy 114.3 92.71) (xy 132.08 92.71)
 		)
 		(stroke
 			(width 0)
@@ -3348,6 +3318,16 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 85.09) (xy 132.08 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53767208-2802-4bd0-bd84-8aa540839091")
+	)
+	(wire
+		(pts
 			(xy 194.31 81.28) (xy 194.31 80.01)
 		)
 		(stroke
@@ -3378,6 +3358,16 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 80.01) (xy 144.78 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6414d85a-748d-4443-9fa3-aab56d41830e")
+	)
+	(wire
+		(pts
 			(xy 90.17 111.76) (xy 90.17 107.95)
 		)
 		(stroke
@@ -3398,7 +3388,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 81.28) (xy 114.3 92.71)
+			(xy 114.3 82.55) (xy 114.3 92.71)
 		)
 		(stroke
 			(width 0)
@@ -3408,7 +3398,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 76.2) (xy 114.3 74.93)
+			(xy 114.3 77.47) (xy 114.3 74.93)
 		)
 		(stroke
 			(width 0)
@@ -3478,6 +3468,26 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 92.71) (xy 157.48 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5905444-e7e6-455f-ac01-7cd0c437857c")
+	)
+	(wire
+		(pts
+			(xy 142.24 82.55) (xy 142.24 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8c6a6c1-7746-4e4f-8f27-16929cce9ab3")
+	)
+	(wire
+		(pts
 			(xy 71.12 74.93) (xy 71.12 80.01)
 		)
 		(stroke
@@ -3535,16 +3545,6 @@
 			(type default)
 		)
 		(uuid "bd068551-c737-4e8e-af9a-e5cd0c0a8dab")
-	)
-	(wire
-		(pts
-			(xy 132.08 81.28) (xy 132.08 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1f9f4d1-9a0c-4864-b616-e97477258aea")
 	)
 	(wire
 		(pts
@@ -4142,7 +4142,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 191.77 128.27 0)
 			(effects
 				(font
@@ -4180,7 +4180,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_Small")
-		(at 114.3 78.74 0)
+		(at 114.3 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4189,7 +4189,7 @@
 		(fields_autoplaced yes)
 		(uuid "2a95a689-8465-430a-ae9b-46f507ed5be2")
 		(property "Reference" "C17"
-			(at 116.84 76.9238 0)
+			(at 116.84 78.1938 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4198,7 +4198,7 @@
 			)
 		)
 		(property "Value" "470uF"
-			(at 116.84 79.4638 0)
+			(at 116.84 80.7338 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4207,7 +4207,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:CP_Elec_8x10.5"
-			(at 114.3 78.74 0)
+			(at 114.3 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4216,7 +4216,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 114.3 78.74 0)
+			(at 114.3 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4225,7 +4225,7 @@
 			)
 		)
 		(property "Description" "Polarized capacitor, small symbol"
-			(at 114.3 78.74 0)
+			(at 114.3 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4764,7 +4764,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 210.82 128.27 0)
 			(effects
 				(font
@@ -4960,7 +4960,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 153.67 128.27 0)
 			(effects
 				(font
@@ -5065,7 +5065,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Nidec_CAS-120A1")
-		(at 134.62 86.36 90)
+		(at 137.16 82.55 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5073,7 +5073,7 @@
 		(dnp no)
 		(uuid "5de1f412-d458-4d40-b939-1a9541fa2303")
 		(property "Reference" "SW4"
-			(at 129.54 86.36 0)
+			(at 137.16 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5081,7 +5081,7 @@
 			)
 		)
 		(property "Value" "SW_Nidec_CAS-120A1"
-			(at 128.27 86.36 0)
+			(at 137.16 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5090,7 +5090,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Angled_CK_OS102011MA1Q"
-			(at 144.78 86.36 0)
+			(at 137.16 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5099,7 +5099,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.nidec-components.com/e/catalog/switch/cas.pdf"
-			(at 142.24 86.36 0)
+			(at 137.16 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5108,7 +5108,7 @@
 			)
 		)
 		(property "Description" "Switch, single pole double throw"
-			(at 134.62 86.36 0)
+			(at 137.16 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5210,7 +5210,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "64ad08e4-a140-41f6-a7c3-ac2f6879785b")
 		(property "Reference" "U1"
 			(at 157.48 67.31 0)
@@ -5283,7 +5282,7 @@
 	)
 	(symbol
 		(lib_id "Device:Battery")
-		(at 57.15 90.17 0)
+		(at 57.15 90.17 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5291,7 +5290,7 @@
 		(dnp no)
 		(uuid "665f8e99-c3fc-45eb-a9f6-1eb1871dc6a5")
 		(property "Reference" "BT1"
-			(at 60.96 88.3284 0)
+			(at 53.34 92.0116 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5300,7 +5299,7 @@
 			)
 		)
 		(property "Value" "Battery"
-			(at 60.96 90.8684 0)
+			(at 53.34 89.4716 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5308,8 +5307,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_AMASS:AMASS_XT60PW-M_1x02_P7.20mm_Horizontal"
-			(at 57.15 88.646 90)
+		(property "Footprint" "Connector_AMASS:AMASS_XT60IPW-M_1x03_P7.20mm_Horizontal"
+			(at 57.15 91.694 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5318,7 +5317,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 57.15 88.646 90)
+			(at 57.15 91.694 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5943,7 +5942,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 172.72 128.27 0)
 			(effects
 				(font

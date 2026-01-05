@@ -640,113 +640,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:TestPoint"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.762)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "TP"
-				(at 0 6.858 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TestPoint"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "test point"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "test point tp"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Pin* Test*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TestPoint_0_1"
-				(circle
-					(center 0 3.302)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TestPoint_1_1"
-				(pin passive line
-					(at 0 0 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:LED"
 			(pin_numbers
 				(hide yes)
@@ -2450,7 +2343,7 @@
 		)
 		(uuid "d75d8b2e-e8d6-4a84-aeef-9aa28e02898f")
 	)
-	(global_label "A1"
+	(global_label "A3"
 		(shape output)
 		(at 49.53 143.51 180)
 		(fields_autoplaced yes)
@@ -2498,54 +2391,6 @@
 			)
 		)
 	)
-	(global_label "A3"
-		(shape output)
-		(at 215.9 39.37 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "445de047-7c77-4a78-a6f3-be4f5477a560")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9 45.1293 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "A0"
-		(shape output)
-		(at 236.22 39.37 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "59f18f81-4f57-4f20-a969-282c912b1217")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 236.22 45.1293 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "A2"
 		(shape output)
 		(at 241.3 101.6 270)
@@ -2570,31 +2415,7 @@
 			)
 		)
 	)
-	(global_label "A1"
-		(shape output)
-		(at 226.06 39.37 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "927f0d1c-9aa9-4b91-a869-1baa6a212b08")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 226.06 45.1293 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "A4"
+	(global_label "A0"
 		(shape output)
 		(at 49.53 135.89 180)
 		(fields_autoplaced yes)
@@ -2618,7 +2439,7 @@
 			)
 		)
 	)
-	(global_label "A0"
+	(global_label "A1"
 		(shape output)
 		(at 198.12 102.87 270)
 		(fields_autoplaced yes)
@@ -2643,30 +2464,6 @@
 		)
 	)
 	(global_label "A4"
-		(shape output)
-		(at 205.74 39.37 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "b5ba8981-6d5f-4c8d-b43d-ebf6109c9ab1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 205.74 45.1293 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "A0"
 		(shape output)
 		(at 49.53 146.05 180)
 		(fields_autoplaced yes)
@@ -2714,7 +2511,7 @@
 			)
 		)
 	)
-	(global_label "A3"
+	(global_label "A1"
 		(shape output)
 		(at 49.53 138.43 180)
 		(fields_autoplaced yes)
@@ -2762,7 +2559,7 @@
 			)
 		)
 	)
-	(global_label "A1"
+	(global_label "A0"
 		(shape output)
 		(at 153.67 104.14 270)
 		(fields_autoplaced yes)
@@ -2783,94 +2580,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(global_label "A2"
-		(shape output)
-		(at 246.38 39.37 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify right)
-		)
-		(uuid "f1074397-6618-4214-8bc5-32c06ec5ad90")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 246.38 45.1293 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 252.73 157.48 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "000af159-3114-46e1-ac51-e7751334432c")
-		(property "Reference" "H4"
-			(at 255.27 156.2099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 255.27 158.7499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
-			(at 252.73 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 252.73 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 252.73 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "H4")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -3001,141 +2710,6 @@
 			(project "SMB-100-A"
 				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 236.22 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "057248c9-6203-4a60-b26b-618d6b09654d")
-		(property "Reference" "A4"
-			(at 238.76 36.0679 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 238.76 37.3379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 241.3 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 241.3 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 236.22 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f5eebcf-1369-46cd-88fe-340faa868dd2")
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "A4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 246.38 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "058be5df-993a-476d-9413-2f457a902574")
-		(property "Reference" "A5"
-			(at 248.92 34.7979 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 248.92 37.3379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 251.46 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 251.46 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 246.38 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "03dbcbbf-8fd2-4a18-9115-addd2a31ef67")
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "A5")
 					(unit 1)
 				)
 			)
@@ -3351,7 +2925,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x02_Socket")
-		(at 78.74 139.7 0)
+		(at 68.58 142.24 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3360,25 +2934,23 @@
 		(fields_autoplaced yes)
 		(uuid "0b3fda0e-d62e-4237-9f6a-968c48cd3b04")
 		(property "Reference" "J2"
-			(at 80.01 139.6999 0)
+			(at 69.215 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "Power"
-			(at 80.01 142.2399 0)
+			(at 69.215 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
-			(at 78.74 139.7 0)
+			(at 68.58 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3387,7 +2959,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 78.74 139.7 0)
+			(at 68.58 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3396,7 +2968,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 78.74 139.7 0)
+			(at 68.58 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3730,7 +3302,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 214.63 157.48 0)
 			(effects
 				(font
@@ -5205,7 +4777,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 233.68 157.48 0)
 			(effects
 				(font
@@ -5309,74 +4881,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 215.9 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6f28dcbd-d060-45d4-a98f-198466d6594c")
-		(property "Reference" "A2"
-			(at 218.44 36.0679 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 218.44 37.3379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 220.98 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 220.98 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 215.9 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b9bdb81d-a9a4-4274-8de1-2c73a7c923af")
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "A2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 124.46 52.07 0)
 		(unit 1)
@@ -5470,7 +4974,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 195.58 157.48 0)
 			(effects
 				(font
@@ -6545,74 +6049,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 226.06 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a0cc0599-6f23-4500-b949-f0ae969f8a7c")
-		(property "Reference" "A3"
-			(at 228.6 36.0679 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 228.6 37.3379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 231.14 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 231.14 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 226.06 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "852630b9-3989-4dc5-885f-6bd72fa9c04f")
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "A3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 243.84 97.79 0)
 		(unit 1)
@@ -7145,74 +6581,6 @@
 			(project "SMB-100-A"
 				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
 					(reference "U6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 205.74 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bab9cc95-c10b-4dfd-81ee-8979f3454996")
-		(property "Reference" "A1"
-			(at 208.28 36.0679 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 208.28 37.3379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 210.82 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 210.82 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 205.74 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b7503ab5-5161-4721-ab3c-55e2623737a2")
-		)
-		(instances
-			(project "SMB-100-A"
-				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
-					(reference "A1")
 					(unit 1)
 				)
 			)

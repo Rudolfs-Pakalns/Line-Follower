@@ -671,6 +671,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
 			(pin_names
 				(offset 1.016)
@@ -3894,6 +4001,18 @@
 		(uuid 29c67a0d-11fd-4145-8902-10b122d6a17b)
 	)
 	(rectangle
+		(start 142.875 125.73)
+		(end 222.885 150.495)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid ad0e5059-fb65-422b-9c99-9a91ed10816b)
+	)
+	(rectangle
 		(start 142.875 43.815)
 		(end 222.885 68.58)
 		(stroke
@@ -3904,6 +4023,16 @@
 			(type none)
 		)
 		(uuid d34f5af3-7d9a-4e82-a45a-482b91ecfcba)
+	)
+	(text "Testpoints"
+		(exclude_from_sim no)
+		(at 182.626 127.762 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0b963b60-82a2-43de-8afa-b87072dd1b1b")
 	)
 	(text "Mounting drillholes"
 		(exclude_from_sim no)
@@ -5075,6 +5204,30 @@
 			)
 		)
 	)
+	(global_label "A4"
+		(shape output)
+		(at 160.02 138.43 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "05c48314-1ac8-4beb-8330-b80b22d27d06")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 160.02 144.1893 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "D5"
 		(shape output)
 		(at 128.27 68.58 0)
@@ -5267,6 +5420,30 @@
 			)
 		)
 	)
+	(global_label "A0"
+		(shape output)
+		(at 190.5 138.43 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "7ef7e026-488e-4115-8927-29ae447f3a95")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 190.5 144.1893 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "A3"
 		(shape output)
 		(at 165.1 85.09 180)
@@ -5383,6 +5560,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A2"
+		(shape output)
+		(at 200.66 138.43 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "db93e620-75ff-4aa2-a6c8-2276270989ff")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 200.66 144.1893 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A3"
+		(shape output)
+		(at 170.18 138.43 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "eefa2c2c-6d11-41f3-893d-d1d97a89ad36")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 170.18 144.1893 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A1"
+		(shape output)
+		(at 180.34 138.43 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify right)
+		)
+		(uuid "f40d3ff1-3500-4718-8f49-bf1f2d995747")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 180.34 144.1893 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -5505,7 +5754,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 166.37 53.34 0)
 			(effects
 				(font
@@ -5536,6 +5785,141 @@
 			(project "MCB-100-A"
 				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
 					(reference "H14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 190.5 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "057248c9-6203-4a60-b26b-618d6b09654d")
+		(property "Reference" "A4"
+			(at 193.04 135.1279 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 193.04 136.3979 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 195.58 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 195.58 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 190.5 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f5eebcf-1369-46cd-88fe-340faa868dd2")
+		)
+		(instances
+			(project "MCB-100-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
+					(reference "A4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 200.66 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "058be5df-993a-476d-9413-2f457a902574")
+		(property "Reference" "A5"
+			(at 203.2 133.8579 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 203.2 136.3979 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 205.74 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 205.74 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 200.66 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "03dbcbbf-8fd2-4a18-9115-addd2a31ef67")
+		)
+		(instances
+			(project "MCB-100-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
+					(reference "A5")
 					(unit 1)
 				)
 			)
@@ -5866,70 +6250,6 @@
 			(project "MCB-100-A"
 				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
 					(reference "R11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 185.42 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "18d1c09b-ac28-4e5d-82c1-b8420d59f8a5")
-		(property "Reference" "H7"
-			(at 187.96 34.2899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 187.96 36.8299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
-			(at 185.42 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 185.42 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 185.42 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "MCB-100-A"
-				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
-					(reference "H7")
 					(unit 1)
 				)
 			)
@@ -7081,7 +7401,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 204.47 63.5 0)
 			(effects
 				(font
@@ -7145,7 +7465,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 166.37 63.5 0)
 			(effects
 				(font
@@ -7379,6 +7699,74 @@
 			(project "MCB-100-A"
 				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
 					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 170.18 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6f28dcbd-d060-45d4-a98f-198466d6594c")
+		(property "Reference" "A2"
+			(at 172.72 135.1279 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 172.72 136.3979 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 175.26 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 175.26 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 170.18 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b9bdb81d-a9a4-4274-8de1-2c73a7c923af")
+		)
+		(instances
+			(project "MCB-100-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
+					(reference "A2")
 					(unit 1)
 				)
 			)
@@ -7823,7 +8211,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 185.42 63.5 0)
 			(effects
 				(font
@@ -8020,7 +8408,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 147.32 53.34 0)
 			(effects
 				(font
@@ -8185,6 +8573,74 @@
 			(project "MCB-100-A"
 				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
 					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 180.34 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a0cc0599-6f23-4500-b949-f0ae969f8a7c")
+		(property "Reference" "A3"
+			(at 182.88 135.1279 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 182.88 136.3979 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "852630b9-3989-4dc5-885f-6bd72fa9c04f")
+		)
+		(instances
+			(project "MCB-100-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
+					(reference "A3")
 					(unit 1)
 				)
 			)
@@ -8402,70 +8858,6 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 204.47 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a4988b8d-a5f6-4c1b-9086-368f50869908")
-		(property "Reference" "H8"
-			(at 207.01 34.2899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 207.01 36.8299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
-			(at 204.47 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 204.47 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 204.47 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "MCB-100-A"
-				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
-					(reference "H8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
 		(at 204.47 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8492,7 +8884,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 204.47 53.34 0)
 			(effects
 				(font
@@ -8556,7 +8948,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 147.32 63.5 0)
 			(effects
 				(font
@@ -8866,17 +9258,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 166.37 35.56 0)
+		(lib_id "Connector:TestPoint")
+		(at 160.02 138.43 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "bc36e406-fe30-4dcb-bcb7-fa5d4ec3254d")
-		(property "Reference" "H6"
-			(at 168.91 34.2899 0)
+		(uuid "bab9cc95-c10b-4dfd-81ee-8979f3454996")
+		(property "Reference" "A1"
+			(at 162.56 135.1279 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8884,17 +9276,18 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
-			(at 168.91 36.8299 0)
+		(property "Value" "TestPoint"
+			(at 162.56 136.3979 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
-			(at 166.37 35.56 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 165.1 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8903,7 +9296,74 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 166.37 35.56 0)
+			(at 165.1 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 160.02 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b7503ab5-5161-4721-ab3c-55e2623737a2")
+		)
+		(instances
+			(project "MCB-100-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592/e2315434-08f5-4beb-abfe-72a29c72dc81"
+					(reference "A1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 190.5 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bc36e406-fe30-4dcb-bcb7-fa5d4ec3254d")
+		(property "Reference" "H6"
+			(at 193.04 31.7499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 193.04 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 190.5 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 190.5 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8912,7 +9372,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 166.37 35.56 0)
+			(at 190.5 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9336,7 +9796,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 147.32 35.56 0)
+		(at 171.45 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -9345,7 +9805,7 @@
 		(fields_autoplaced yes)
 		(uuid "e573f448-8034-4a3b-a29e-2e7e02dec198")
 		(property "Reference" "H5"
-			(at 149.86 34.2899 0)
+			(at 173.99 31.7499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9354,7 +9814,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 149.86 36.8299 0)
+			(at 173.99 34.2899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9362,8 +9822,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
-			(at 147.32 35.56 0)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 171.45 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9372,7 +9832,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 147.32 35.56 0)
+			(at 171.45 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9381,7 +9841,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 147.32 35.56 0)
+			(at 171.45 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9426,7 +9886,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_ISO14580"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 185.42 53.34 0)
 			(effects
 				(font

@@ -510,7 +510,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "SMB-100-A.step",
       "svg": "",
       "vrml": ""
     },

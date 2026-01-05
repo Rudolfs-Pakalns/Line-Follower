@@ -190,6 +190,7 @@
         0.0,
         0.4,
         0.5,
+        1.0,
         1.5
       ],
       "tuning_pattern_settings": {
@@ -510,7 +511,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "PSB-100-A.step",
       "svg": "",
       "vrml": ""
     },
