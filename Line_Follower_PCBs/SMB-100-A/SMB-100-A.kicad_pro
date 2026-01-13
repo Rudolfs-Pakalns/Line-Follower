@@ -507,7 +507,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../MFR/GBR/SMB_GBR/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "SMB-100-A.step",

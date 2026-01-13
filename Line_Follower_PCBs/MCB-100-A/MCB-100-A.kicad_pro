@@ -511,7 +511,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../MFR/GBR/MCB_GBR/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "MCB-100-A.step",

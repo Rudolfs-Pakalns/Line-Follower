@@ -508,7 +508,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../MFR/GBR/PSB_GBR/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "PSB-100-A.step",
