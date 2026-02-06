@@ -7,5 +7,7 @@
  */
 
 
-void Drive(uint8_t Pin_A1, uint8_t Pin_A2, uint8_t Pin_B1, uint8_t Pin_B2, uint8_t Speed);
-
+void Right_Motor_Forward(uint8_t Pin_1, uint8_t Pin_2, uint8_t Speed);
+void Right_Motor_Reverse(uint8_t Pin_1, uint8_t Pin_2, uint8_t Speed);
+void Left_Motor_Forward(uint8_t Pin_1, uint8_t Pin_2, uint8_t Speed);
+void Left_Motor_Reverse(uint8_t Pin_1, uint8_t Pin_2, uint8_t Speed);
