@@ -5550,13 +5550,13 @@
 	)
 	(symbol
 		(lib_id "Transistor_FET:SUD50P06-15")
-		(at 90.17 77.47 90)
+		(at 90.17 77.47 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "98a9a87a-a243-4463-ac6b-b999412501ed")
 		(property "Reference" "Q1"
 			(at 90.17 68.58 90)
@@ -5575,7 +5575,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
-			(at 92.075 72.517 0)
+			(at 88.265 72.517 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5586,7 +5586,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/68940/sud50p06.pdf"
-			(at 93.98 72.39 0)
+			(at 86.36 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)

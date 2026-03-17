@@ -11,9 +11,9 @@
 
 #define MOTOR_PIN_A1  5
 #define MOTOR_PIN_A2  11
-#define MOTOR_PIN_B1  9
-#define MOTOR_PIN_B2  10
-#define BUTTON        2
+#define MOTOR_PIN_B1  9  // actual 10
+#define MOTOR_PIN_B2  10 // actual 9
+#define BUTTON        12
 #define SENSOR_1      A0
 #define SENSOR_2      A1
 #define SENSOR_3      A2

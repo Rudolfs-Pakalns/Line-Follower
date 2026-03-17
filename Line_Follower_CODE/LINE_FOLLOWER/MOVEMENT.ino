@@ -31,4 +31,13 @@ void Left_Motor_Reverse(uint8_t Pin_1, uint8_t Pin_2, uint8_t Speed)
   analogWrite(Pin_2, Speed);
 }
 
+void Stop_Motors()
+{
+  analogWrite(MOTOR_PIN_A1, 0);
+  analogWrite(MOTOR_PIN_A2, 0);
+
+  analogWrite(MOTOR_PIN_B1, 0);
+  analogWrite(MOTOR_PIN_B2, 0);
+}
+
 

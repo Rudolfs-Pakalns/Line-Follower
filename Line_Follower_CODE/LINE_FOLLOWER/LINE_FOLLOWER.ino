@@ -1,141 +1,205 @@
 /**
- * @file LINE_FOLLOWER.ino
- * @author Rūdolfs Pakalns
- * @brief Main code for line follower robot using PID control
- * @version 0.1
- * @date 2025-12-20
+ * Line Follower with Trap Protection
  */
 
-// Includes
 #include "GPIO.h"
 #include "MOVEMENTS.h"
 
-// Definitions
 #define ARRAY_SIZE 5
-#define BASE_SPEED 100
+#define BASE_SPEED 245
+#define START_TIME 3000
+#define PID_INTERVAL 2
 
-// PV
-uint8_t   sensors[ARRAY_SIZE] = {SENSOR_1, SENSOR_2, SENSOR_3, SENSOR_4, SENSOR_5};
-uint8_t   sensor_reads[ARRAY_SIZE] = {0};
-int8_t    weights[ARRAY_SIZE] = {-2, -1, 0, 1, 2 };
-int8_t    error = 0;
+uint8_t sensors[ARRAY_SIZE] = {SENSOR_1,SENSOR_2,SENSOR_3,SENSOR_4,SENSOR_5};
+uint8_t sensor_reads[ARRAY_SIZE];
 
-int16_t P = 0;
-int16_t I = 0;
-int16_t D = 0;
-float kP = 25.0;
-float kI = 2.0;
-float kD = 15.0;
-uint8_t   speed = 0;
-int8_t   last_error = 0;
+// stronger weights for faster recovery
+int8_t weights[ARRAY_SIZE] = {-6,-3,0,3,6};
 
-// PFP
-int8_t calculate_error(uint8_t *sensor_reads, int8_t *weights);
-void handleBT();
-void Read_Sensors(uint8_t *sensor_array, uint8_t *sensor_reads);
+float error = 0;
+float last_error = 0;
+float filtered_error = 0;
+float D = 0;
 
-// Main code
-void setup() 
+float kP = 48;
+float kD = 25;
+
+bool robot_running = false;
+
+static bool last_button_state = HIGH;
+static unsigned long last_press_time = 0;
+
+unsigned long junction_lock = 0;
+
+
+// prototypes
+void Read_Sensors(uint8_t*,uint8_t*);
+float calculate_error(uint8_t*,int8_t*);
+
+
+void setup()
 {
-  Serial.begin(9600);
-  GPIO_Init();
-}
-
-// Main loop
-void loop() 
-{
-  handleBT();
-
-  Read_Sensors(sensors, sensor_reads);
-
-  error = calculate_error(sensor_reads, weights);
-
-  P = error;
-  I += error; I = constrain(I, -50, 50); 
-  D = error - last_error;
-  
-  
-  // Serial.print("Error: "); Serial.print(error);
-  // Serial.print(" kP: "); Serial.print(kP);
-  // Serial.print(" kI: "); Serial.print(kI);
-  // Serial.print(" kD: "); Serial.print(kD);
-
-  int16_t correction = kP * P + kI * I + kD * D;
-
-  last_error = error;
-
-  int16_t left_speed  = BASE_SPEED + correction;
-  int16_t right_speed = BASE_SPEED - correction;
-
-  left_speed  = constrain(left_speed,  0, 255);
-  right_speed = constrain(right_speed, 0, 255);
-
-  Right_Motor_Forward(MOTOR_PIN_A1, MOTOR_PIN_A2, right_speed);
-  Left_Motor_Forward(MOTOR_PIN_B1, MOTOR_PIN_B2, left_speed);
+    GPIO_Init();
 }
 
 
-/**
- * @brief Calculate the weighted error from sensor readings
- * 
- * @param sensors Array of sensor readings (0 or 1)
- * @param weights Array of weights corresponding to each sensor
- * @return int8_t Calculated error value
- */
-int8_t calculate_error(uint8_t *sensors, int8_t *weights)
+void loop()
 {
-  int8_t weighted_sum = 0;
-  int8_t sensor_sum = 0;
+    // ---------- Button ----------
+    bool current_button_state = digitalRead(BUTTON);
 
-  for (uint8_t i = 0; i < ARRAY_SIZE; i++)
-  {
-    weighted_sum += sensors[i] * weights[i];
-    sensor_sum += sensors[i];
-  }
+    if(!current_button_state && last_button_state && millis()-last_press_time>200)
+    {
+        Stop_Motors();
+        delay(START_TIME);
+        robot_running = !robot_running;
+        last_press_time = millis();
+    }
 
-  if (sensor_sum == 0)
-  {
-    if (last_error > 0) return 2;
-    if (last_error < 0) return -2;
-    return 0; 
-  }
+    last_button_state = current_button_state;
 
-  
+    if(!robot_running)
+    {
+        Stop_Motors();
+        return;
+    }
 
-  return weighted_sum / sensor_sum;
+
+    // ---------- PID timing ----------
+    static unsigned long lastPID = 0;
+    if(millis()-lastPID < PID_INTERVAL) return;
+    lastPID = millis();
+
+
+    // ---------- Read sensors ----------
+    Read_Sensors(sensors,sensor_reads);
+
+
+    // ---------- Center priority filter ----------
+    if(sensor_reads[2] == 1)
+    {
+        sensor_reads[0] = 0;
+        sensor_reads[4] = 0;
+    }
+
+
+    // ---------- Count active sensors ----------
+    uint8_t active = 0;
+    for(uint8_t i=0;i<ARRAY_SIZE;i++)
+        active += sensor_reads[i];
+
+
+    // ---------- Calculate error ----------
+    error = calculate_error(sensor_reads, weights);
+    error *= 1.2;
+
+
+    // ---------- Strong 90° corner detection ----------
+    if(sensor_reads[0] && sensor_reads[1] && !sensor_reads[2])
+        error = -5;
+
+    if(sensor_reads[3] && sensor_reads[4] && !sensor_reads[2])
+        error = 5;
+
+
+    // ---------- Smooth error ----------
+    filtered_error = 0.5*filtered_error + 0.5*error;
+    error = filtered_error;
+
+
+    // ---------- Deadband ----------
+    if(abs(error) < 0.35)
+        error = 0;
+
+
+    // ---------- Junction lock ----------
+    if(active >= 4)
+        junction_lock = millis();
+
+    if(millis() - junction_lock < 120)
+        error = last_error;
+
+
+    // ---------- PID ----------
+    float derivative = (error-last_error)/(PID_INTERVAL*0.001);
+
+    D = 0.75*D + 0.25*derivative;
+
+    float correction = kP*error + kD*D;
+
+    correction = constrain(correction,-220,220);
+
+    last_error = error;
+
+
+    // ---------- Dynamic base speed ----------
+    int base = BASE_SPEED - abs(error)*32;
+    base = constrain(base,140,BASE_SPEED);
+
+
+    // ---------- Motor speeds ----------
+    int16_t left_speed  = base + correction;
+    int16_t right_speed = base - correction;
+
+
+    // ---------- Corner assist ----------
+    if(abs(error) > 3)
+    {
+        left_speed  = base + correction*1.25;
+        right_speed = base - correction*1.25;
+    }
+
+
+    // ---------- Center boost ----------
+    if(sensor_reads[0]==0 &&
+       sensor_reads[1]==0 &&
+       sensor_reads[2]==1 &&
+       sensor_reads[3]==0 &&
+       sensor_reads[4]==0)
+    {
+        left_speed  = 255;
+        right_speed = 255;
+    }
+
+
+    left_speed  = constrain(left_speed,-255,255);
+    right_speed = constrain(right_speed,-255,255);
+
+
+    // ---------- Motor control ----------
+    if(left_speed >= 0)
+        Left_Motor_Forward(MOTOR_PIN_B1,MOTOR_PIN_B2,left_speed);
+    else
+        Left_Motor_Reverse(MOTOR_PIN_B1,MOTOR_PIN_B2,-left_speed);
+
+    if(right_speed >= 0)
+        Right_Motor_Forward(MOTOR_PIN_A1,MOTOR_PIN_A2,right_speed);
+    else
+        Right_Motor_Reverse(MOTOR_PIN_A1,MOTOR_PIN_A2,-right_speed);
 }
 
-/**
- * @brief Handle Bluetooth input for PID tuning
- * 
- * Expected input format: 'p' followed by kP value, 'i' followed by kI value, 'd' followed by kD value
- * Example: "p25.0" to set kP to 25.0
- */
-void handleBT()
+
+
+float calculate_error(uint8_t *sensors,int8_t *weights)
 {
-  if (!Serial.available()) return;
+    int16_t weighted_sum = 0;
+    int16_t sensor_sum = 0;
 
-  char type = Serial.read();
-  float value = Serial.parseFloat();
+    for(uint8_t i=0;i<ARRAY_SIZE;i++)
+    {
+        weighted_sum += sensors[i]*weights[i];
+        sensor_sum += sensors[i];
+    }
 
-  if (type == 'p') kP = value;
-  else if (type == 'i') kI = value;
-  else if (type == 'd') kD = value;
+    if(sensor_sum==0)
+        return constrain(last_error*1.2,-4,4);
 
-  kP = constrain(kP, 0, 100);
-  kI = constrain(kI, 0, 10);
-  kD = constrain(kD, 0, 100);
-
-  // Serial.print(type);
-  // Serial.print(" = ");
-  // Serial.println(value);
+    return (float)weighted_sum / sensor_sum;
 }
 
-void Read_Sensors(uint8_t *sensor_array, uint8_t *sensor_reads)
+
+void Read_Sensors(uint8_t *sensor_array,uint8_t *sensor_reads)
 {
-  for (uint8_t i = 0; i < ARRAY_SIZE; i++)
-  {
-    sensor_reads[i] = digitalRead(sensor_array[i]);
-    //delay(10); 
-  }
+    for(uint8_t i=0;i<ARRAY_SIZE;i++)
+        sensor_reads[i] = digitalRead(sensor_array[i]);
 }
