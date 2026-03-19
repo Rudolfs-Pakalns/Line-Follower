@@ -6,7 +6,7 @@
 #include "MOVEMENTS.h"
 
 #define ARRAY_SIZE 5
-#define BASE_SPEED 245
+#define BASE_SPEED 225
 #define START_TIME 3000
 #define PID_INTERVAL 2
 
@@ -14,7 +14,7 @@ uint8_t sensors[ARRAY_SIZE] = {SENSOR_1,SENSOR_2,SENSOR_3,SENSOR_4,SENSOR_5};
 uint8_t sensor_reads[ARRAY_SIZE];
 
 // ✅ LEFT-biased weights
-int8_t weights[ARRAY_SIZE] = {-8,-4,0,2,4};
+int8_t weights[ARRAY_SIZE] = {-5,-2,0,3,5};
 
 float error = 0;
 float last_error = 0;
