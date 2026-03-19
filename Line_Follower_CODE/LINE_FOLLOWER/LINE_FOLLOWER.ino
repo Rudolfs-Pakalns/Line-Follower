@@ -1,5 +1,5 @@
 /**
- * Line Follower with Trap Protection
+ * Line Follower with Trap Protection (LEFT Priority + Stable)
  */
 
 #include "GPIO.h"
@@ -13,15 +13,15 @@
 uint8_t sensors[ARRAY_SIZE] = {SENSOR_1,SENSOR_2,SENSOR_3,SENSOR_4,SENSOR_5};
 uint8_t sensor_reads[ARRAY_SIZE];
 
-// stronger weights for faster recovery
-int8_t weights[ARRAY_SIZE] = {-6,-3,0,3,6};
+// ✅ LEFT-biased weights
+int8_t weights[ARRAY_SIZE] = {-8,-4,0,2,4};
 
 float error = 0;
 float last_error = 0;
 float filtered_error = 0;
 float D = 0;
 
-float kP = 48;
+float kP = 42;
 float kD = 25;
 
 bool robot_running = false;
@@ -75,7 +75,7 @@ void loop()
     Read_Sensors(sensors,sensor_reads);
 
 
-    // ---------- Center priority filter ----------
+    // ---------- Center priority ----------
     if(sensor_reads[2] == 1)
     {
         sensor_reads[0] = 0;
@@ -83,18 +83,37 @@ void loop()
     }
 
 
-    // ---------- Count active sensors ----------
+    // ---------- Count active ----------
     uint8_t active = 0;
     for(uint8_t i=0;i<ARRAY_SIZE;i++)
         active += sensor_reads[i];
 
 
-    // ---------- Calculate error ----------
+    // ---------- Error ----------
     error = calculate_error(sensor_reads, weights);
     error *= 1.2;
 
 
-    // ---------- Strong 90° corner detection ----------
+    // ---------- LEFT priority at forks (ANTI-TRAP) ----------
+    if ((sensor_reads[1] && sensor_reads[3]) ||
+        (sensor_reads[0] && sensor_reads[4]))
+    {
+        error -= 1.0;
+    }
+
+
+    // ---------- Edge damping ----------
+    if(sensor_reads[0] || sensor_reads[4])
+    {
+        error *= 0.65;
+    }
+    else if(sensor_reads[1] || sensor_reads[3])
+    {
+        error *= 0.8;
+    }
+
+
+    // ---------- Strong 90° corners ----------
     if(sensor_reads[0] && sensor_reads[1] && !sensor_reads[2])
         error = -5;
 
@@ -121,18 +140,18 @@ void loop()
 
 
     // ---------- PID ----------
-    float derivative = (error-last_error)/(PID_INTERVAL*0.001);
+    float derivative = (error - last_error) / 0.002f;
+    derivative = constrain(derivative, -40, 40);
 
     D = 0.75*D + 0.25*derivative;
 
     float correction = kP*error + kD*D;
-
     correction = constrain(correction,-220,220);
 
     last_error = error;
 
 
-    // ---------- Dynamic base speed ----------
+    // ---------- Dynamic base ----------
     int base = BASE_SPEED - abs(error)*32;
     base = constrain(base,140,BASE_SPEED);
 
@@ -192,7 +211,10 @@ float calculate_error(uint8_t *sensors,int8_t *weights)
     }
 
     if(sensor_sum==0)
-        return constrain(last_error*1.2,-4,4);
+    {
+        // ✅ LEFT search when lost
+        return constrain(last_error*1.1 - 0.5,-4,4);
+    }
 
     return (float)weighted_sum / sensor_sum;
 }
