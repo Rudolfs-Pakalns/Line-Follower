@@ -21,8 +21,8 @@ float last_error = 0;
 float filtered_error = 0;
 float D = 0;
 
-float kP = 42;
-float kD = 25;
+float kP = 40;
+float kD = 35;
 
 bool robot_running = false;
 

@@ -1,0 +1,262 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "ba6ec278-f76e-4654-8292-83170a792592")
+	(paper "A4")
+	(title_block
+		(title "MCB - 100 - A")
+		(date "2025-12-21")
+		(rev "1.0")
+		(company "Rūdolfs Pakalns")
+	)
+	(lib_symbols)
+	(text "Line Follower - MCB-100-A"
+		(exclude_from_sim no)
+		(at 139.7 28.702 0)
+		(effects
+			(font
+				(size 11 11)
+				(thickness 2.5)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "95dcd811-ffb7-45c6-85d3-3d60c890bb1f")
+	)
+	(text "Version 1.0"
+		(exclude_from_sim no)
+		(at 40.64 43.942 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 0.625)
+				(color 128 77 0 1)
+			)
+		)
+		(uuid "a7e8802e-1da2-4f39-a248-acf8451317e0")
+	)
+	(sheet
+		(at 19.685 121.285)
+		(size 43.18 6.35)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "2f1d8d13-b77a-40ac-869b-9c92cf39d028")
+		(property "Sheetname" "Version Tracking"
+			(at 19.685 120.2084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Version_Tracking.kicad_sch"
+			(at 19.685 128.2196 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Field2" ""
+			(at 19.685 121.285 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "MCB-110-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 19.05 106.045)
+		(size 43.18 6.35)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "4b6d646c-93d3-4417-a08b-7f2b2f10322a")
+		(property "Sheetname" "Power"
+			(at 19.05 104.9684 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Power.kicad_sch"
+			(at 19.05 112.9796 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MCB-110-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 19.05 92.71)
+		(size 43.18 6.35)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "92bf6b2e-b791-477a-87cc-8b55e5d25f14")
+		(property "Sheetname" "Motor Driver"
+			(at 19.05 91.6334 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Motor Driver.kicad_sch"
+			(at 19.05 99.6446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MCB-110-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 19.05 63.5)
+		(size 43.18 6.35)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "96a04c1c-9523-4d3e-be50-107d799a9f68")
+		(property "Sheetname" "Block Diagramme"
+			(at 19.05 62.4234 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "untitled.kicad_sch"
+			(at 19.05 70.4346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MCB-110-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 19.05 78.105)
+		(size 43.18 6.35)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e2315434-08f5-4beb-abfe-72a29c72dc81")
+		(property "Sheetname" "STM32G071"
+			(at 19.05 77.0284 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "STM32G071.kicad_sch"
+			(at 19.05 85.0396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MCB-110-A"
+				(path "/ba6ec278-f76e-4654-8292-83170a792592"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
