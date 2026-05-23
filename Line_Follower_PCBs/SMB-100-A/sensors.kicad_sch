@@ -184,6 +184,128 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:Conn_01x01_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01_Pin"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x01_Pin_1_1"
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_01x02_Socket"
 			(pin_names
 				(offset 1.016)
@@ -1923,6 +2045,14 @@
 		(color 0 0 0 0)
 		(uuid "7c9e9bac-17de-4d9c-9372-9dbe6f4e0133")
 	)
+	(no_connect
+		(at 86.36 142.24)
+		(uuid "3cd711da-e2ca-46f8-94f6-5726d2f3c270")
+	)
+	(no_connect
+		(at 86.36 139.7)
+		(uuid "ac904429-a005-46d2-afdd-94c130cdfea8")
+	)
 	(wire
 		(pts
 			(xy 110.49 104.14) (xy 116.84 104.14)
@@ -2668,7 +2798,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 184.15 90.17 0)
 			(effects
 				(font
@@ -3555,7 +3685,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 140.97 91.44 0)
 			(effects
 				(font
@@ -4025,7 +4155,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 213.36 95.25 0)
 			(effects
 				(font
@@ -4091,7 +4221,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 86.36 97.79 0)
 			(effects
 				(font
@@ -4364,7 +4494,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 100.33 91.44 0)
 			(effects
 				(font
@@ -4504,7 +4634,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 227.33 88.9 0)
 			(effects
 				(font
@@ -4570,7 +4700,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 82.55 29.21 0)
 			(effects
 				(font
@@ -4702,7 +4832,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 110.49 29.21 0)
 			(effects
 				(font
@@ -5077,6 +5207,72 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 81.28 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "79d73630-f2f7-407e-8463-ad6f96c620d7")
+		(property "Reference" "J4"
+			(at 81.915 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x01_Pin"
+			(at 81.915 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
+			(at 81.28 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 81.28 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "734242d0-8981-411c-97d9-844663dc5db7")
+		)
+		(instances
+			(project ""
+				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Amplifier_Operational:MCP6001U")
 		(at 143.51 104.14 0)
 		(unit 1)
@@ -5239,7 +5435,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 139.7 29.21 0)
 			(effects
 				(font
@@ -5420,6 +5616,72 @@
 			(project "SMB-100-A"
 				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
 					(reference "RV3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 81.28 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8a2119af-db15-4944-8324-a2c0732c9460")
+		(property "Reference" "J3"
+			(at 81.915 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x01_Pin"
+			(at 81.915 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
+			(at 81.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 81.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "04bfed67-8e9b-42e2-a0ce-1a24a24db1af")
+		)
+		(instances
+			(project "SMB-100-A"
+				(path "/4ea53e76-d3b3-4b1a-b681-a989539cc0f0/d341834e-563c-4e68-8b83-8ae7278e8d4b"
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -6200,7 +6462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 168.91 29.21 0)
 			(effects
 				(font
@@ -6266,7 +6528,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 170.18 96.52 0)
 			(effects
 				(font
@@ -6679,7 +6941,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 44.45 99.06 0)
 			(effects
 				(font
@@ -7109,7 +7371,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 59.69 92.71 0)
 			(effects
 				(font
@@ -7175,7 +7437,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 127 97.79 0)
 			(effects
 				(font
@@ -7603,7 +7865,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 73.66 134.62 0)
 			(effects
 				(font
@@ -7735,7 +7997,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 53.34 29.21 0)
 			(effects
 				(font

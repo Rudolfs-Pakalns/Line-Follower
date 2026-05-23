@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 1.45,
-          "width": 1.175
+          "height": 1.4,
+          "width": 1.2
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.005
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -58,7 +58,16 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "unconnected_items|132951123|113957776|F.Cu|4|d68977db-51b1-457f-b2e5-8e316f93965c|e91aa6f3-f09a-4945-98f0-a4d8b3ab424f",
+          ""
+        ],
+        [
+          "unconnected_items|161011123|117067776|F.Cu|4|34e96a83-d90c-4088-9275-0945740d374d|5796b532-8d9a-4f67-bfa2-5ec4a4870031",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -511,7 +520,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../MFR/GBR/MCB_GBR/",
+      "plot": "../../../MFR/GBR/MCB_GBR/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "MCB-110-A.step",

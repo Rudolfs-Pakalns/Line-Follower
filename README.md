@@ -3,7 +3,7 @@
 ## This project contains code and resources for a line-following robot.
 
 ## Contents
-- Arduino code for line-following robot
+- STM32 code for line-following robot
 - KiCad schematic and PCB design files
 - 3D model of the robot chassis
 - Bill of Materials (BOM) for components used

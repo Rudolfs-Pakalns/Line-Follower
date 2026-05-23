@@ -2569,12 +2569,12 @@
 		(uuid "acad7077-5878-4650-910e-4acc68f6fa7f")
 	)
 	(no_connect
-		(at 68.58 45.72)
-		(uuid "c21e779b-8a62-4c4d-8d23-b0ff1e9fc543")
-	)
-	(no_connect
 		(at 68.58 63.5)
 		(uuid "d12abd00-a9f5-4c30-8de1-e17abe7e6bdc")
+	)
+	(no_connect
+		(at 68.58 48.26)
+		(uuid "ded79ecc-cb53-4bd9-8843-8ce550a92cdf")
 	)
 	(wire
 		(pts
@@ -2595,16 +2595,6 @@
 			(type default)
 		)
 		(uuid "0c1184d3-27fb-4dae-a544-169c20361186")
-	)
-	(wire
-		(pts
-			(xy 58.42 48.26) (xy 68.58 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e7d38a1-603b-4bcc-bc14-bffb7c720ac0")
 	)
 	(wire
 		(pts
@@ -2788,6 +2778,16 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 45.72) (xy 68.58 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "acb879a4-161a-4145-965c-7bee625f67c5")
+	)
+	(wire
+		(pts
 			(xy 41.91 96.52) (xy 48.26 96.52)
 		)
 		(stroke
@@ -2905,16 +2905,6 @@
 			(justify right bottom)
 		)
 		(uuid "157a91a2-5364-4cc2-8652-6a740d1e3c3a")
-	)
-	(label "USER_BTN"
-		(at 58.42 48.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "16e4f3fd-dd62-4eb4-8377-c2be0ebd390c")
 	)
 	(label "~{RST}"
 		(at 207.01 72.39 180)
@@ -3035,6 +3025,16 @@
 			(justify right bottom)
 		)
 		(uuid "9d0a7013-66fa-46b7-b799-20daed645c5c")
+	)
+	(label "USER_BTN"
+		(at 58.42 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c4311b59-bc72-434e-846c-d805feddffa3")
 	)
 	(label "TX"
 		(at 64.77 58.42 0)
