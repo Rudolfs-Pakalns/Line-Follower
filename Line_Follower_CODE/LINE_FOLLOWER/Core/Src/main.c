@@ -61,7 +61,13 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+#define RX_BUFFER_SIZE 64
 
+uint8_t rx_byte;
+uint8_t rx_buffer[RX_BUFFER_SIZE];
+
+volatile uint16_t rx_write_index = 0;
+volatile uint16_t rx_read_index = 0;
 /* USER CODE END 0 */
 
 /**
@@ -97,6 +103,10 @@ int main(void)
   MX_TIM3_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(nSleep_GPIO_Port, nSleep_Pin, GPIO_PIN_SET);
+
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
   /* USER CODE END 2 */
 
@@ -104,6 +114,23 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // turn motors on
+
+
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 30000);
+	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+
+	  HAL_Delay(1000);
+
+	  // stop motors
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 0);
+	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+
+	  // disable driver
+
+
+	  HAL_Delay(1000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -177,10 +204,6 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_OC_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -192,18 +215,17 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_TIMING;
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-  if (HAL_TIM_OC_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
@@ -350,16 +372,26 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(nSleep_GPIO_Port, nSleep_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : Start_Pin */
   GPIO_InitStruct.Pin = Start_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(Start_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : nSleep_Enable_Pin Sensor_1_Pin Sensor_2_Pin Sensor_3_Pin
-                           Sensor_4_Pin */
-  GPIO_InitStruct.Pin = nSleep_Enable_Pin|Sensor_1_Pin|Sensor_2_Pin|Sensor_3_Pin
-                          |Sensor_4_Pin;
+  /*Configure GPIO pin : nSleep_Pin */
+  GPIO_InitStruct.Pin = nSleep_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(nSleep_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Sensor_1_Pin Sensor_2_Pin Sensor_3_Pin Sensor_4_Pin
+                           Sensor_5_Pin */
+  GPIO_InitStruct.Pin = Sensor_1_Pin|Sensor_2_Pin|Sensor_3_Pin|Sensor_4_Pin
+                          |Sensor_5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -370,7 +402,22 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+        rx_buffer[rx_write_index] = rx_byte;
 
+        rx_write_index++;
+
+        if (rx_write_index >= RX_BUFFER_SIZE)
+            rx_write_index = 0;
+
+
+        // restart interrupt
+        HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
+    }
+}
 /* USER CODE END 4 */
 
 /**

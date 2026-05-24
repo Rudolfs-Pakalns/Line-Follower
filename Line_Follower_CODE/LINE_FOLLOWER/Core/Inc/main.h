@@ -61,8 +61,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Start_Pin GPIO_PIN_14
 #define Start_GPIO_Port GPIOC
-#define nSleep_Enable_Pin GPIO_PIN_0
-#define nSleep_Enable_GPIO_Port GPIOB
+#define nSleep_Pin GPIO_PIN_0
+#define nSleep_GPIO_Port GPIOB
 #define AIN1_Pin GPIO_PIN_1
 #define AIN1_GPIO_Port GPIOB
 #define AIN2_Pin GPIO_PIN_8
@@ -71,14 +71,16 @@ void Error_Handler(void);
 #define BIN2_GPIO_Port GPIOC
 #define BIN1_Pin GPIO_PIN_11
 #define BIN1_GPIO_Port GPIOA
-#define Sensor_1_Pin GPIO_PIN_5
+#define Sensor_1_Pin GPIO_PIN_4
 #define Sensor_1_GPIO_Port GPIOB
-#define Sensor_2_Pin GPIO_PIN_6
+#define Sensor_2_Pin GPIO_PIN_5
 #define Sensor_2_GPIO_Port GPIOB
-#define Sensor_3_Pin GPIO_PIN_7
+#define Sensor_3_Pin GPIO_PIN_6
 #define Sensor_3_GPIO_Port GPIOB
-#define Sensor_4_Pin GPIO_PIN_8
+#define Sensor_4_Pin GPIO_PIN_7
 #define Sensor_4_GPIO_Port GPIOB
+#define Sensor_5_Pin GPIO_PIN_8
+#define Sensor_5_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

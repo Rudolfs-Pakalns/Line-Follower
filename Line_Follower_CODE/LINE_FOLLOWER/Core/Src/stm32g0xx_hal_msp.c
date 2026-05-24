@@ -80,15 +80,15 @@ void HAL_MspInit(void)
 }
 
 /**
-  * @brief TIM_OC MSP Initialization
+  * @brief TIM_PWM MSP Initialization
   * This function configures the hardware resources used in this example
-  * @param htim_oc: TIM_OC handle pointer
+  * @param htim_pwm: TIM_PWM handle pointer
   * @retval None
   */
-void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* htim_oc)
+void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
 {
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
-  if(htim_oc->Instance==TIM1)
+  if(htim_pwm->Instance==TIM1)
   {
     /* USER CODE BEGIN TIM1_MspInit 0 */
 
@@ -108,20 +108,8 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* htim_oc)
     /* USER CODE BEGIN TIM1_MspInit 1 */
 
     /* USER CODE END TIM1_MspInit 1 */
-
   }
-
-}
-
-/**
-  * @brief TIM_PWM MSP Initialization
-  * This function configures the hardware resources used in this example
-  * @param htim_pwm: TIM_PWM handle pointer
-  * @retval None
-  */
-void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
-{
-  if(htim_pwm->Instance==TIM3)
+  else if(htim_pwm->Instance==TIM3)
   {
     /* USER CODE BEGIN TIM3_MspInit 0 */
 
@@ -132,7 +120,6 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
     /* USER CODE BEGIN TIM3_MspInit 1 */
 
     /* USER CODE END TIM3_MspInit 1 */
-
   }
 
 }
@@ -194,14 +181,14 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
 
 }
 /**
-  * @brief TIM_OC MSP De-Initialization
+  * @brief TIM_PWM MSP De-Initialization
   * This function freeze the hardware resources used in this example
-  * @param htim_oc: TIM_OC handle pointer
+  * @param htim_pwm: TIM_PWM handle pointer
   * @retval None
   */
-void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* htim_oc)
+void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* htim_pwm)
 {
-  if(htim_oc->Instance==TIM1)
+  if(htim_pwm->Instance==TIM1)
   {
     /* USER CODE BEGIN TIM1_MspDeInit 0 */
 
@@ -212,18 +199,7 @@ void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* htim_oc)
 
     /* USER CODE END TIM1_MspDeInit 1 */
   }
-
-}
-
-/**
-  * @brief TIM_PWM MSP De-Initialization
-  * This function freeze the hardware resources used in this example
-  * @param htim_pwm: TIM_PWM handle pointer
-  * @retval None
-  */
-void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* htim_pwm)
-{
-  if(htim_pwm->Instance==TIM3)
+  else if(htim_pwm->Instance==TIM3)
   {
     /* USER CODE BEGIN TIM3_MspDeInit 0 */
 
@@ -277,6 +253,9 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Alternate = GPIO_AF1_USART2;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* USART2 interrupt Init */
+    HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USART2_IRQn);
     /* USER CODE BEGIN USART2_MspInit 1 */
 
     /* USER CODE END USART2_MspInit 1 */
@@ -307,6 +286,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);
 
+    /* USART2 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(USART2_IRQn);
     /* USER CODE BEGIN USART2_MspDeInit 1 */
 
     /* USER CODE END USART2_MspDeInit 1 */
