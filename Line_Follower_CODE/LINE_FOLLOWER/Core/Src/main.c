@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "LF.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,6 +32,14 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define MAX_SPEED 		65535
+#define MIN_SPEED 		10000
+#define BASE_SPEED 		22000
+
+#define RX_BUFFER_SIZE 	16
+
+
+
 
 /* USER CODE END PD */
 
@@ -47,6 +56,39 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
+// ==================================================================
+/* PID STUFF */
+float P = 1.0f;
+float I = 0.0f;
+float D = 0.0f;
+
+float error = 0;
+float previous_error = 0;
+
+float integral = 0;
+float derivative = 0;
+
+float pid_output = 0;
+
+float dt = 0.01f; // 10ms loop
+
+uint16_t base_speed = BASE_SPEED;
+
+// ==================================================================
+/* UART */
+uint8_t rx_byte;
+char rx_buffer[RX_BUFFER_SIZE];
+
+volatile uint16_t rx_index = 0;
+volatile uint8_t rx_ready = 0;
+
+// ==================================================================
+/* SENSORS */
+uint16_t sensors[ARRAY_SIZE] = {Sensor_1_Pin, Sensor_2_Pin, Sensor_3_Pin, Sensor_4_Pin, Sensor_5_Pin};
+uint8_t sensor_values[ARRAY_SIZE] = {0};
+int8_t sensor_weights[ARRAY_SIZE] = {-2, -1, 0, 1, 2};
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,13 +103,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define RX_BUFFER_SIZE 64
 
-uint8_t rx_byte;
-uint8_t rx_buffer[RX_BUFFER_SIZE];
-
-volatile uint16_t rx_write_index = 0;
-volatile uint16_t rx_read_index = 0;
 /* USER CODE END 0 */
 
 /**
@@ -103,10 +139,17 @@ int main(void)
   MX_TIM3_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
+
   HAL_GPIO_WritePin(nSleep_GPIO_Port, nSleep_Pin, GPIO_PIN_SET);
 
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+
+
 
   /* USER CODE END 2 */
 
@@ -114,22 +157,48 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  // turn motors on
+
+	  int32_t left_speed;
+	  int32_t right_speed;
+
+	  //uint8_t start = HAL_GPIO_ReadPin(Start_GPIO_Port, Start_Pin);
+
+	  if(rx_ready)
+	  {
+		  cmd_service(rx_buffer, &P, &I, &D, &base_speed);
+		  rx_ready = 0;
+	  }
 
 
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 30000);
-	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+	  /* PID CALCULATIONS */
+	  error = read_sensors(sensors, sensor_values, sensor_weights, &previous_error);
+	  integral += error * dt;
 
-	  HAL_Delay(1000);
+	  if(integral > 100) integral = 100;
 
-	  // stop motors
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 0);
-	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+	  if(integral < -100) integral = -100;
 
-	  // disable driver
+	  derivative = (error - previous_error) / dt;
+	  pid_output = (P * error) + (I * integral) + (D * derivative);
+	  previous_error = error;
+
+	  if(pid_output > MAX_SPEED) pid_output = MAX_SPEED;
+	  if(pid_output < -MAX_SPEED) pid_output = -MAX_SPEED;
 
 
-	  HAL_Delay(1000);
+	  /* SPEED APLICATION */
+	  left_speed  = base_speed + (int32_t)pid_output;
+	  right_speed = base_speed - (int32_t)pid_output;
+
+	  if(left_speed > MAX_SPEED) left_speed = MAX_SPEED;
+	  if(left_speed < -MAX_SPEED)  left_speed = -MAX_SPEED;
+	  if(right_speed > MAX_SPEED)right_speed = MAX_SPEED;
+	  if(right_speed < -MAX_SPEED)right_speed = -MAX_SPEED;
+
+	  set_left_motor(left_speed);
+	  set_right_motor(right_speed);
+
+	  HAL_Delay(10);
 
     /* USER CODE END WHILE */
 
@@ -404,20 +473,51 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-    if (huart->Instance == USART2)
+    static uint8_t receiving = 0;
+
+
+    if(huart->Instance == USART2)
     {
-        rx_buffer[rx_write_index] = rx_byte;
+        // ignore CR
+        if(rx_byte == '\r')
+        {
+        }
 
-        rx_write_index++;
+        // message finished
+        else if(rx_byte == '\n')
+        {
+            rx_buffer[rx_index] = '\0';
 
-        if (rx_write_index >= RX_BUFFER_SIZE)
-            rx_write_index = 0;
+            rx_ready = 1;
 
+            receiving = 0;
+        }
 
-        // restart interrupt
+        else
+        {
+            // first character of new message
+            if(receiving == 0)
+            {
+                memset(rx_buffer, 0, sizeof(rx_buffer));
+                rx_index = 0;
+
+                receiving = 1;
+            }
+
+            // store character
+            if(rx_index < RX_BUFFER_SIZE - 1)
+            {
+                rx_buffer[rx_index++] = rx_byte;
+            }
+        }
+
         HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
     }
 }
+
+
+
+
 /* USER CODE END 4 */
 
 /**

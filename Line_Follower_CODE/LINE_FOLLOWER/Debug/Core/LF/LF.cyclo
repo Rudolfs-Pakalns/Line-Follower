@@ -1,0 +1,8 @@
+../Core/LF/LF.c:14:6:cmd_service	8
+../Core/LF/LF.c:58:6:forward	1
+../Core/LF/LF.c:70:6:reverse	1
+../Core/LF/LF.c:81:6:set_right_motor	2
+../Core/LF/LF.c:97:6:set_left_motor	2
+../Core/LF/LF.c:112:6:stop	1
+../Core/LF/LF.c:125:6:spin	1
+../Core/LF/LF.c:140:7:read_sensors	4
