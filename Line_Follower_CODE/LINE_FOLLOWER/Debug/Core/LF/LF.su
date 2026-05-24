@@ -1,8 +1,9 @@
 ../Core/LF/LF.c:14:6:cmd_service	40	static
-../Core/LF/LF.c:58:6:forward	16	static
-../Core/LF/LF.c:70:6:reverse	16	static
-../Core/LF/LF.c:81:6:set_right_motor	16	static
-../Core/LF/LF.c:97:6:set_left_motor	16	static
-../Core/LF/LF.c:112:6:stop	8	static
-../Core/LF/LF.c:125:6:spin	8	static
-../Core/LF/LF.c:140:7:read_sensors	48	static
+../Core/LF/LF.c:53:6:forward	16	static
+../Core/LF/LF.c:65:6:reverse	16	static
+../Core/LF/LF.c:76:6:set_right_motor	16	static
+../Core/LF/LF.c:92:6:set_left_motor	16	static
+../Core/LF/LF.c:107:6:stop	8	static
+../Core/LF/LF.c:119:6:spin	8	static
+../Core/LF/LF.c:134:6:set_base_speed	16	static
+../Core/LF/LF.c:142:7:read_sensors	48	static

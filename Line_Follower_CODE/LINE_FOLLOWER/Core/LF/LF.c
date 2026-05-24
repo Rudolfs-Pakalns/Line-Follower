@@ -35,29 +35,20 @@ void cmd_service(char *cmd, float *P, float *I, float *D, uint16_t *base_speed)
 		*D = dvalue;
 
 	else if(strcmp(cmd, "stop") == 0)
-	{
 		stop();
-	}
 
 	else if(strcmp(cmd, "spin") == 0)
-	{
 		spin();
-	}
 
 	else if(sscanf(cmd, "set speed %hu", &speed) == 1)
-	{
-		if(speed > MAX_SPEED) speed = MAX_SPEED;
-		if(speed < MIN_SPEED) speed = MIN_SPEED;
+		set_base_speed(base_speed, speed);
 
-		*base_speed = speed;
-	}
 }
 
 
 
 void forward(uint16_t speed)
 {
-	HAL_GPIO_WritePin(nSleep_GPIO_Port, nSleep_Pin, GPIO_PIN_SET);
 	// Motor A
 	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, speed);
@@ -121,7 +112,6 @@ void stop()
 	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, MAX_SPEED);
 }
 
-
 void spin()
 {
 	// Motor A
@@ -135,6 +125,16 @@ void spin()
 	HAL_Delay(500);
 
 	stop();
+}
+
+void set_base_speed(uint16_t *current_speed, uint16_t new_speed)
+{
+	HAL_GPIO_WritePin(nSleep_GPIO_Port, nSleep_Pin, GPIO_PIN_SET);
+
+	if(new_speed > MAX_SPEED) new_speed = MAX_SPEED;
+	if(new_speed < MIN_SPEED) new_speed = MIN_SPEED;
+
+	*current_speed = new_speed;
 }
 
 float read_sensors(uint16_t *s_arr, uint8_t *sVal_arr, int8_t *weights, float *prevErr)

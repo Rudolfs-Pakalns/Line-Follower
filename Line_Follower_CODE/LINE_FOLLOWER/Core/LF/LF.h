@@ -20,6 +20,7 @@ void set_right_motor(int16_t speed);
 void set_left_motor(int16_t speed);
 void stop();
 void spin();
+void set_base_speed(uint16_t *current_speed, uint16_t new_speed);
 float read_sensors(uint16_t *s_arr, uint8_t *sVal_arr, int8_t *weights, float *prevErr);
 
 #endif /* LF_LF_H_ */
